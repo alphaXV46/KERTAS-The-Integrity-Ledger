@@ -1,0 +1,47 @@
+KERTAS: The Integrity Ledger
+A browser-based educational game about integrity and anti-corruption.
+Target: Students (ages 13–18) | Theme: Indonesia Tanpa Korupsi
+
+=============================================================
+CREDITS & ASSET ATTRIBUTION
+=============================================================
+
+GAME DESIGN & DEVELOPMENT
+  Design & Code: Built with Vanilla HTML5/CSS3/JavaScript
+  Integrity Values Framework: #BERJUMPADIKERTAS
+    (Berani, Jujur, Mandiri, Peduli, Adil, Disiplin,
+     Kerja Keras, Tanggung Jawab, Sederhana)
+
+FONTS
+  Plus Jakarta Sans — Google Fonts
+  License: SIL Open Font License 1.1
+  Source: https://fonts.google.com/specimen/Plus+Jakarta+Sans
+
+ICONS & UI ELEMENTS
+  SVG icons: Inline, designed for this project
+  Inspired by: Kenney UI Pack (CC0) — https://kenney.nl/assets/ui-pack
+  Inspired by: Game-icons.net (CC-BY 3.0) — https://game-icons.net
+
+AUDIO
+  Sound effects generated via Web Audio API (procedural, no external assets)
+
+BACKGROUND MUSIC
+  No external BGM used in this version.
+  Recommended sources for future BGM:
+    - Incompetech (Kevin MacLeod) — CC-BY 4.0 — https://incompetech.com
+    - Purple Planet Music — CC-BY 3.0 — https://www.purple-planet.com
+
+EDUCATIONAL CONTENT
+  Anti-corruption scenarios based on publicly known case archetypes.
+  All characters and project names are fictional.
+  Inspired by KPK (Komisi Pemberantasan Korupsi) public education materials.
+
+=============================================================
+LICENSE
+=============================================================
+Game source code: MIT License
+Educational content: CC-BY 4.0
+All original assets created for this project are freely reusable
+with attribution to "KERTAS: The Integrity Ledger".
+
+=============================================================
