@@ -1,0 +1,171 @@
+{
+  "id": "case_02_dana_sekolah",
+  "titleId": "Dana BOS: SDN Harapan Bangsa",
+  "titleEn": "School Funds: SDN Harapan Bangsa",
+  "difficulty": 2,
+  "unlockedByDefault": false,
+  "startingIntegrity": 70,
+  "startingTokens": {
+    "berani": 5, "jujur": 5, "mandiri": 4,
+    "peduli": 6, "adil": 5, "disiplin": 4,
+    "kerjaKeras": 5, "tanggungjawab": 5, "sederhana": 4
+  },
+  "backgroundId": "SDN Harapan Bangsa menerima Dana Bantuan Operasional Sekolah (BOS) sebesar Rp 450 juta untuk tahun ajaran ini. Namun inspektur pendidikan kabupaten melaporkan bahwa buku teks yang dijanjikan tidak kunjung tiba, dan guru-guru mengeluh tunjangan mereka dipotong tanpa keterangan. Kamu ditugaskan untuk mengaudit penggunaan dana BOS dan melindungi hak siswa dan guru.",
+  "backgroundEn": "SDN Harapan Bangsa received Rp 450 million in School Operational Assistance Funds (BOS) for this academic year. But the district education inspector reports that promised textbooks haven't arrived, and teachers complain their allowances were cut without explanation. You're assigned to audit BOS fund usage and protect the rights of students and teachers.",
+  "objectives": [
+    { "id": "obj1", "textId": "Verifikasi daftar aset yang dibeli dengan dana BOS", "textEn": "Verify the list of assets purchased with BOS funds" },
+    { "id": "obj2", "textId": "Investigasi pemotongan tunjangan guru", "textEn": "Investigate teacher allowance cuts" },
+    { "id": "obj3", "textId": "Ungkap keberadaan pegawai fiktif", "textEn": "Expose ghost employee records" },
+    { "id": "obj4", "textId": "Amankan hak siswa atas buku teks", "textEn": "Secure students' rights to textbooks" },
+    { "id": "obj5", "textId": "Rekomendasikan mekanisme pengawasan baru", "textEn": "Recommend new oversight mechanisms" }
+  ],
+  "passageSequence": ["rn1", "rn2", "rn3", "rn4", "rn5"],
+  "riskNodes": [
+    {
+      "id": "rn1",
+      "descId": "Laporan keuangan sekolah mencantumkan pembelian 200 unit laptop untuk laboratorium komputer seharga Rp 180 juta. Namun saat kamu mengunjungi sekolah, laboratorium komputer hanya memiliki 60 unit lama yang sudah usang.",
+      "descEn": "The school financial report lists 200 laptop units for the computer lab at Rp 180 million. But when you visit the school, the computer lab only has 60 old, outdated units.",
+      "options": [
+        {
+          "id": "opt_a",
+          "textId": "Cross-check nomor seri laptop dengan invoice & database pengadaan (Jujur + Kerja Keras)",
+          "textEn": "Cross-check laptop serial numbers with invoices & procurement database (Honest + Hard Work)",
+          "cost": { "jujur": 2, "kerjaKeras": 2 },
+          "effects": { "integrity": 14, "corruptionPressure": -10 },
+          "completesObjectives": ["obj1"],
+          "auditNoteId": "Ditemukan 140 unit laptop fiktif dalam laporan. Kerugian negara Rp 126 juta.",
+          "auditNoteEn": "140 phantom laptop units found in report. State loss Rp 126 million.",
+          "isGoodChoice": true
+        },
+        {
+          "id": "opt_b",
+          "textId": "Terima penjelasan kepala sekolah bahwa laptop 'dipinjamkan ke ruang lain'",
+          "textEn": "Accept principal's explanation that laptops are 'loaned to other rooms'",
+          "cost": {},
+          "effects": { "integrity": -15, "corruptionPressure": 14 },
+          "completesObjectives": [],
+          "auditNoteId": "Penjelasan diterima tanpa verifikasi. Aset fiktif tidak terdeteksi.",
+          "auditNoteEn": "Explanation accepted without verification. Phantom assets remain undetected.",
+          "isGoodChoice": false
+        }
+      ]
+    },
+    {
+      "id": "rn2",
+      "descId": "Tiga orang guru menghubungimu secara pribadi. Mereka mengaku tunjangan transportasi mereka dipotong 40% selama 6 bulan terakhir oleh kepala sekolah, dengan alasan 'penghematan anggaran'. Tidak ada SK resmi untuk pemotongan ini.",
+      "descEn": "Three teachers contact you privately. They claim their transport allowances were cut 40% for the last 6 months by the principal, citing 'budget savings'. There is no official decree for this cut.",
+      "options": [
+        {
+          "id": "opt_a",
+          "textId": "Dokumentasikan kesaksian guru & telusuri rekening sekolah (Peduli + Berani)",
+          "textEn": "Document teacher testimonies & trace school accounts (Caring + Brave)",
+          "cost": { "peduli": 2, "berani": 1 },
+          "effects": { "integrity": 12, "corruptionPressure": -8 },
+          "completesObjectives": ["obj2"],
+          "auditNoteId": "Pemotongan ilegal terkonfirmasi. Total Rp 64,8 juta dipotong tanpa dasar hukum.",
+          "auditNoteEn": "Illegal cuts confirmed. Total Rp 64.8 million cut without legal basis.",
+          "isGoodChoice": true
+        },
+        {
+          "id": "opt_b",
+          "textId": "Anggap itu urusan internal sekolah",
+          "textEn": "Treat it as internal school affairs",
+          "cost": {},
+          "effects": { "integrity": -12, "corruptionPressure": 10 },
+          "completesObjectives": [],
+          "auditNoteId": "Keluhan guru diabaikan. Kepala sekolah tidak dimintai pertanggungjawaban.",
+          "auditNoteEn": "Teacher complaints ignored. Principal not held accountable.",
+          "isGoodChoice": false
+        }
+      ]
+    },
+    {
+      "id": "rn3",
+      "descId": "Kamu menemukan 5 nama dalam daftar gaji staf sekolah yang tidak dapat kamu temui secara fisik. Kepala tata usaha berdalih mereka adalah tenaga kontrak yang 'bekerja dari rumah' untuk urusan administrasi.",
+      "descEn": "You find 5 names in the school staff payroll that you cannot physically locate. The administration head claims they're contract staff who 'work from home' for administrative tasks.",
+      "options": [
+        {
+          "id": "opt_a",
+          "textId": "Minta bukti kerja nyata & konfirmasi ke dinas pendidikan (Mandiri + Disiplin)",
+          "textEn": "Request tangible work evidence & confirm with education office (Independent + Disciplined)",
+          "cost": { "mandiri": 1, "disiplin": 2 },
+          "effects": { "integrity": 16, "corruptionPressure": -12 },
+          "completesObjectives": ["obj3"],
+          "auditNoteId": "Kelima pegawai tidak dapat diverifikasi. Gaji fiktif Rp 75 juta/tahun dihentikan.",
+          "auditNoteEn": "All 5 employees unverifiable. Phantom salaries of Rp 75 million/year halted.",
+          "isGoodChoice": true
+        },
+        {
+          "id": "opt_b",
+          "textId": "Percayai penjelasan dan lanjutkan",
+          "textEn": "Trust the explanation and move on",
+          "cost": {},
+          "effects": { "integrity": -18, "corruptionPressure": 16 },
+          "completesObjectives": [],
+          "auditNoteId": "Pegawai fiktif tidak terungkap. Penyalahgunaan anggaran berlanjut.",
+          "auditNoteEn": "Ghost employees remain undetected. Budget abuse continues.",
+          "isGoodChoice": false
+        }
+      ]
+    },
+    {
+      "id": "rn4",
+      "descId": "Anggaran buku teks sebesar Rp 85 juta tercatat telah dicairkan, namun buku belum diterima siswa. Vendor menyebut buku 'sudah dikirim' namun tidak ada bukti tanda terima. Kepala sekolah terlihat tidak nyaman saat ditanya.",
+      "descEn": "The textbook budget of Rp 85 million is recorded as disbursed, but students haven't received books. The vendor says books 'were delivered' but there's no receipt. The principal looks uncomfortable when asked.",
+      "options": [
+        {
+          "id": "opt_a",
+          "textId": "Lacak pengiriman via vendor & wawancara siswa-orang tua (Adil + Peduli)",
+          "textEn": "Trace delivery via vendor & interview students/parents (Fair + Caring)",
+          "cost": { "adil": 1, "peduli": 1 },
+          "effects": { "integrity": 14, "corruptionPressure": -10 },
+          "completesObjectives": ["obj4"],
+          "auditNoteId": "Buku tidak pernah dikirim. Vendor kolusi dengan kepala sekolah. Dilaporkan ke kejaksaan.",
+          "auditNoteEn": "Books were never delivered. Vendor colluded with principal. Reported to prosecutor.",
+          "isGoodChoice": true
+        },
+        {
+          "id": "opt_b",
+          "textId": "Catat sebagai 'dalam proses pengiriman'",
+          "textEn": "Note as 'in delivery process'",
+          "cost": {},
+          "effects": { "integrity": -14, "corruptionPressure": 14 },
+          "completesObjectives": [],
+          "auditNoteId": "Status buku dicatat ambigu. Siswa tidak mendapatkan hak buku teks mereka.",
+          "auditNoteEn": "Book status noted ambiguously. Students denied their textbook rights.",
+          "isGoodChoice": false
+        }
+      ]
+    },
+    {
+      "id": "rn5",
+      "descId": "Audit hampir selesai. Kasus ini mengungkap sistem pengawasan yang sangat lemah. Kamu bisa menulis rekomendasi standar saja, atau membuat rekomendasi komprehensif yang mungkin membuat beberapa pihak tidak nyaman.",
+      "descEn": "The audit is nearly done. This case reveals very weak oversight systems. You can write a standard recommendation, or create a comprehensive one that might make some parties uncomfortable.",
+      "options": [
+        {
+          "id": "opt_a",
+          "textId": "Rekomendasikan sistem audit independen triwulanan (Tanggung Jawab + Kerja Keras)",
+          "textEn": "Recommend quarterly independent audit system (Responsible + Hard Work)",
+          "cost": { "tanggungjawab": 2, "kerjaKeras": 1 },
+          "effects": { "integrity": 15, "corruptionPressure": -15 },
+          "completesObjectives": ["obj5"],
+          "auditNoteId": "Rekomendasi komprehensif diterima dinas. Sistem pengawasan baru diterapkan mulai semester depan.",
+          "auditNoteEn": "Comprehensive recommendation accepted by district. New oversight system starts next semester.",
+          "isGoodChoice": true
+        },
+        {
+          "id": "opt_b",
+          "textId": "Tulis rekomendasi minimal agar tidak konflik",
+          "textEn": "Write minimal recommendation to avoid conflict",
+          "cost": {},
+          "effects": { "integrity": -8, "corruptionPressure": 10 },
+          "completesObjectives": [],
+          "auditNoteId": "Rekomendasi terlalu umum. Masalah struktural tidak ditangani. Risiko terulang tinggi.",
+          "auditNoteEn": "Recommendation too vague. Structural issues unaddressed. High risk of recurrence.",
+          "isGoodChoice": false
+        }
+      ]
+    }
+  ],
+  "winCondition": { "minIntegrity": 50, "allObjectives": true, "allTokensAboveZero": true }
+}

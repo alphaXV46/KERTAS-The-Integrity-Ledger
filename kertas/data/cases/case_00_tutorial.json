@@ -1,0 +1,81 @@
+{
+  "id": "case_00_tutorial",
+  "titleId": "Pengantar: Laporan Fiktif",
+  "titleEn": "Introduction: Phantom Report",
+  "difficulty": 0,
+  "unlockedByDefault": true,
+  "startingIntegrity": 80,
+  "startingTokens": {
+    "berani": 5, "jujur": 5, "mandiri": 5,
+    "peduli": 5, "adil": 5, "disiplin": 5,
+    "kerjaKeras": 5, "tanggungjawab": 5, "sederhana": 5
+  },
+  "backgroundId": "Kamu baru saja ditugaskan sebagai Auditor Integritas junior. Berkas pertamamu adalah proyek renovasi kantor kelurahan Sukamaju senilai Rp 150 juta. Laporan awal terlihat bersih, namun ada beberapa kejanggalan kecil yang perlu kamu periksa. Ini adalah kesempatan untuk mempelajari cara kerja sistem audit.",
+  "backgroundEn": "You've just been assigned as a junior Integrity Auditor. Your first file is a Rp 150 million office renovation project in Sukamaju village. The initial report looks clean, but there are a few small irregularities you need to check. This is your chance to learn how the audit system works.",
+  "objectives": [
+    { "id": "obj1", "textId": "Verifikasi kuitansi proyek renovasi", "textEn": "Verify the renovation project receipts" },
+    { "id": "obj2", "textId": "Pastikan tidak ada penggelembungan biaya", "textEn": "Ensure no cost inflation has occurred" }
+  ],
+  "passageSequence": ["rn1", "rn2"],
+  "riskNodes": [
+    {
+      "id": "rn1",
+      "descId": "Kontraktor menyerahkan kuitansi pembelian cat senilai Rp 45 juta. Jumlah itu terasa terlalu besar untuk area seluas 200m². Kamu bisa menerima begitu saja atau memeriksanya lebih lanjut.",
+      "descEn": "The contractor submits paint purchase receipts worth Rp 45 million. That amount seems too large for a 200m² area. You can accept it as is or investigate further.",
+      "options": [
+        {
+          "id": "opt_a",
+          "textId": "Periksa kuitansi secara detail (gunakan Jujur)",
+          "textEn": "Review receipts in detail (use Honest)",
+          "cost": { "jujur": 1 },
+          "effects": { "integrity": 10, "corruptionPressure": -5 },
+          "completesObjectives": ["obj1"],
+          "auditNoteId": "Ditemukan markup 30% pada kuitansi cat. Kontraktor diminta merevisi.",
+          "auditNoteEn": "Found 30% markup on paint receipts. Contractor asked to revise.",
+          "isGoodChoice": true
+        },
+        {
+          "id": "opt_b",
+          "textId": "Terima saja, tidak mau repot",
+          "textEn": "Accept it, don't want the hassle",
+          "cost": {},
+          "effects": { "integrity": -15, "corruptionPressure": 10 },
+          "completesObjectives": [],
+          "auditNoteId": "Kuitansi diterima tanpa verifikasi. Potensi kerugian negara Rp 13,5 juta.",
+          "auditNoteEn": "Receipt accepted without verification. Potential state loss of Rp 13.5 million.",
+          "isGoodChoice": false
+        }
+      ]
+    },
+    {
+      "id": "rn2",
+      "descId": "Kepala proyek memintamu menandatangani berita acara serah terima sebelum pekerjaan benar-benar selesai. Ia berdalih ini 'hanya formalitas' agar pencairan anggaran tidak terlambat.",
+      "descEn": "The project head asks you to sign the handover document before the work is actually finished. He argues this is 'just a formality' to prevent budget delays.",
+      "options": [
+        {
+          "id": "opt_a",
+          "textId": "Tolak & tunggu pekerjaan selesai (Berani + Tanggung Jawab)",
+          "textEn": "Refuse & wait for completion (Brave + Responsible)",
+          "cost": { "berani": 1, "tanggungjawab": 1 },
+          "effects": { "integrity": 15, "corruptionPressure": -10 },
+          "completesObjectives": ["obj2"],
+          "auditNoteId": "Penandatanganan ditunda hingga pekerjaan 100% selesai. Prosedur terjaga.",
+          "auditNoteEn": "Signing postponed until work is 100% complete. Procedure maintained.",
+          "isGoodChoice": true
+        },
+        {
+          "id": "opt_b",
+          "textId": "Tanda tangan dulu, urusan selesai lebih cepat",
+          "textEn": "Sign now, finish matters faster",
+          "cost": { "sederhana": 1 },
+          "effects": { "integrity": -20, "corruptionPressure": 15 },
+          "completesObjectives": [],
+          "auditNoteId": "Berita acara ditandatangani sebelum pekerjaan selesai. Pelanggaran prosedur.",
+          "auditNoteEn": "Handover document signed before work completion. Procedural violation.",
+          "isGoodChoice": false
+        }
+      ]
+    }
+  ],
+  "winCondition": { "minIntegrity": 50, "allObjectives": true, "allTokensAboveZero": true }
+}
